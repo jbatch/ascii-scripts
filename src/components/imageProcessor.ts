@@ -1,20 +1,6 @@
 // imageProcessor.ts
-export type ProcessingMode = "threshold" | "edge" | "dither" | "adaptive";
 
-interface ProcessingOptions {
-  mode: ProcessingMode;
-  threshold: number;
-  sensitivity: number;
-  width: number;
-  height: number;
-}
-
-export interface ProcessingResult {
-  imageData: ImageData;
-  previewUrl: string;
-  width: number;
-  height: number;
-}
+import { ProcessingOptions, ProcessingResult } from "./types";
 
 export const processImage = async (
   sourceImage: HTMLImageElement,
