@@ -377,7 +377,7 @@ const ScriptAsciiGenerator = () => {
               )}
             </CardContent>
           </Card>
-          <div id="printable-ascii" className="">
+          <div id="printable-ascii" className="hidden print:block">
             <PrintableAscii
               textArt={textArt}
               isColored={isColored}
