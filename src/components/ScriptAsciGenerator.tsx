@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -35,12 +35,10 @@ const ScriptAsciiGenerator = () => {
   const [sensitivity, setSensitivity] = useState(30);
   const [showProcessed, setShowProcessed] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     if (!currentImage) return;
 
-    setIsProcessing(true);
     processImage(currentImage, {
       mode,
       threshold,
@@ -49,7 +47,6 @@ const ScriptAsciiGenerator = () => {
       height: currentImage.height,
     }).then((result) => {
       setProcessingResult(result);
-      setIsProcessing(false);
     });
   }, [currentImage, mode, threshold, sensitivity, width]);
 
