@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useCallback } from "react";
 import { DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { RefreshCw } from "lucide-react";
@@ -20,7 +20,7 @@ export const FullscreenDialog = ({
   const [fontSize, setFontSize] = useState(12);
   const [key, setKey] = useState(0); // Force re-render key
 
-  const calculateFontSize = () => {
+  const calculateFontSize = useCallback(() => {
     if (!containerRef.current || !contentRef.current) return;
 
     const containerWidth = containerRef.current.clientWidth;
@@ -36,7 +36,7 @@ export const FullscreenDialog = ({
 
     const newFontSize = Math.min(idealWidthFontSize, idealHeightFontSize);
     setFontSize(newFontSize);
-  };
+  }, [textArt]);
 
   const handleRefresh = () => {
     setKey((prev) => prev + 1); // Force re-render
@@ -46,13 +46,13 @@ export const FullscreenDialog = ({
   // Initial calculation on mount
   useEffect(() => {
     calculateFontSize();
-  }, [key, textArt]);
+  }, [calculateFontSize, key, textArt]);
 
   // Handle window resize
   useEffect(() => {
     window.addEventListener("resize", calculateFontSize);
     return () => window.removeEventListener("resize", calculateFontSize);
-  }, [textArt]);
+  }, [calculateFontSize, textArt]);
 
   return (
     <DialogContent

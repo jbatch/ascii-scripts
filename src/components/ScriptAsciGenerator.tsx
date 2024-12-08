@@ -18,6 +18,7 @@ import { FullscreenDialog } from "./FullscreenDialog";
 import { PrintableAscii } from "./PrintableAscii";
 import { createPrintStyles } from "./printStyles";
 import { TextPixel, ProcessingMode, ProcessingResult } from "./types";
+import SRTUploader from "./SRTUploader";
 
 const LOREM_IPSUM =
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. `.repeat(
@@ -286,6 +287,7 @@ const ScriptAsciiGenerator = () => {
               onChange={(e) => setInputText(e.target.value)}
               className="h-32"
             />
+            <SRTUploader onTextExtracted={setInputText} className="mt-2" />
           </CardContent>
         </Card>
 
