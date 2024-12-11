@@ -1,50 +1,96 @@
-# React + TypeScript + Vite
+# AsciiScripts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AsciiScripts is a web-based image transformation toolkit that specializes in converting images into artistic ASCII and text-based art.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. ASCII Art Generator
 
-## Expanding the ESLint configuration
+- Upload and convert images into ASCII art
+- Multiple processing modes:
+  - Basic Threshold: Simple black and white conversion
+  - Edge Detection: Highlight image edges with text
+  - Dithering: Advanced pattern-based conversion
+  - Adaptive: Smart contrast adjustment (Coming Soon)
+- Real-time preview
+- Customizable width and processing parameters
+- Color preservation option
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 2. Text-Based ASCII Generator
 
-- Configure the top-level `parserOptions` property like this:
+- Create ASCII art using your own text or scripts
+- Perfect for recreating images using meaningful text
+- Maintains original image colors
+- Adjustable text mapping and patterns
+- Support for custom fonts and styling
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### 3. Image Processing Tools
+
+- Multiple processing algorithms
+- Adjustable threshold and sensitivity controls
+- Real-time preview of processed images
+- Width and scale customization
+- Color and monochrome output options
+
+## Technical Stack
+
+- React with TypeScript
+- Tailwind CSS for styling
+- Shadcn UI components
+- React Router for navigation
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 20.x or higher
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone git@github.com:jbatch/ascii-scripts.git
+cd ascii-scripts
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install
+# or
+yarn install
 ```
+
+3. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Usage
+
+### Basic ASCII Art Generation
+
+1. Navigate to the "Random ASCII" tab
+2. Upload an image using drag-and-drop or file selection
+3. Adjust the width and processing parameters
+4. Use the toolbar to customize the output:
+   - Toggle color preservation
+   - Adjust font weight
+   - View in fullscreen
+   - Copy to clipboard
+   - Print output
+
+### Text-Based ASCII Art
+
+1. Navigate to the "Text ASCII" tab
+2. Enter your desired text in the input field
+3. Upload an image to convert
+4. Adjust processing parameters to fine-tune the output
+5. Use the available tools to customize and export your creation
